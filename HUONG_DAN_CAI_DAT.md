@@ -1,4 +1,4 @@
-# Hướng dẫn TRƯỜNG GPP V1.0.8
+# Hướng dẫn TRƯỜNG GPP V1.0.9
 
 ## Người dùng thông thường
 
@@ -15,7 +15,7 @@
 
 Để bước 4 thực sự đơn giản với người dùng phổ thông, tiện ích phải được phát hành trên Cửa hàng Chrome trực tuyến. Không dùng tệp ZIP để cài cho người dùng cuối.
 
-Gói sẵn để gửi lên cửa hàng: `TRUONG_GPP_V1.0.8_DANG_CUA_HANG_CHROME.zip`.
+Gói sẵn để gửi lên cửa hàng: `TRUONG_GPP_V1.0.9_DANG_CUA_HANG_CHROME.zip`.
 
 ## Nhóm 2 – Vị trí địa lý
 

@@ -1,4 +1,4 @@
-# TRƯỜNG GPP V1.0.8
+# TRƯỜNG GPP V1.0.9
 
 TRƯỜNG GPP là trợ lý nhập thông tin đăng ký tài khoản trên CSDL Dược.
 
@@ -32,9 +32,9 @@ Bám đúng biểu mẫu CSDL Dược đã cung cấp:
 
 ## Tiện ích trình duyệt
 
-V1.0.8 không còn cho người dùng tải tệp ZIP khi bấm **CÀI TIỆN ÍCH NGAY**. Nút cài mở Cửa hàng Chrome trực tuyến. Sau khi tiện ích được phát hành trên cửa hàng, người dùng chỉ cần cài một lần và quay lại TRƯỜNG GPP; trang sẽ tự tải lại để nhận tiện ích vừa cài.
+V1.0.9 không còn cho người dùng tải tệp ZIP khi bấm **CÀI TIỆN ÍCH NGAY**. Nút cài mở Cửa hàng Chrome trực tuyến. Sau khi tiện ích được phát hành trên cửa hàng, người dùng chỉ cần cài một lần và quay lại TRƯỜNG GPP; trang sẽ tự tải lại để nhận tiện ích vừa cài.
 
-Gói `TRUONG_GPP_V1.0.8_DANG_CUA_HANG_CHROME.zip` được chuẩn bị riêng để chủ dự án gửi lên Cửa hàng Chrome trực tuyến. Cốc Cốc có thể dùng tiện ích từ Cửa hàng Chrome.
+Gói `TRUONG_GPP_V1.0.9_DANG_CUA_HANG_CHROME.zip` được chuẩn bị riêng để chủ dự án gửi lên Cửa hàng Chrome trực tuyến. Cốc Cốc có thể dùng tiện ích từ Cửa hàng Chrome.
 
 ## Phạm vi an toàn
 

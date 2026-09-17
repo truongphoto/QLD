@@ -1,4 +1,4 @@
-# Kết quả kiểm thử V1.0.8
+# Kết quả kiểm thử V1.0.9
 
 Nội dung kiểm tra chính:
 

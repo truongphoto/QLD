@@ -1,4 +1,4 @@
-# Nội dung phát hành V1.0.8
+# Nội dung phát hành V1.0.9
 
 ## Sửa trải nghiệm cài tiện ích
 
