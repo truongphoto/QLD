@@ -1,5 +1,46 @@
 export const TARGET_REGISTER_URL = 'https://csdlduoc.com.vn/auth/register';
 
+export const PROVINCE_OPTIONS = [
+  'Đồng Tháp',
+  'Hà Nội', 'Cao Bằng', 'Tuyên Quang', 'Điện Biên', 'Lai Châu', 'Sơn La', 'Lào Cai',
+  'Thái Nguyên', 'Lạng Sơn', 'Quảng Ninh', 'Bắc Ninh', 'Phú Thọ', 'Hải Phòng', 'Hưng Yên',
+  'Ninh Bình', 'Thanh Hóa', 'Nghệ An', 'Hà Tĩnh', 'Quảng Trị', 'Huế', 'Đà Nẵng',
+  'Quảng Ngãi', 'Gia Lai', 'Khánh Hòa', 'Đắk Lắk', 'Lâm Đồng', 'Đồng Nai',
+  'Thành phố Hồ Chí Minh', 'Tây Ninh', 'Vĩnh Long', 'An Giang', 'Cần Thơ', 'Cà Mau'
+];
+
+export const DONG_THAP_WARDS = [
+  'Xã Tân Hồng', 'Xã Tân Thành', 'Xã Tân Hộ Cơ', 'Xã An Phước', 'Xã Thường Phước',
+  'Xã Long Khánh', 'Xã Long Phú Thuận', 'Xã An Hòa', 'Xã Tam Nông', 'Xã Phú Thọ',
+  'Xã Tràm Chim', 'Xã Phú Cường', 'Xã An Long', 'Xã Thanh Bình', 'Xã Tân Thạnh',
+  'Xã Bình Thành', 'Xã Tân Long', 'Xã Tháp Mười', 'Xã Thanh Mỹ', 'Xã Mỹ Quí',
+  'Xã Đốc Binh Kiều', 'Xã Trường Xuân', 'Xã Phương Thịnh', 'Xã Phong Mỹ', 'Xã Ba Sao',
+  'Xã Mỹ Thọ', 'Xã Bình Hàng Trung', 'Xã Mỹ Hiệp', 'Xã Mỹ An Hưng', 'Xã Tân Khánh Trung',
+  'Xã Lấp Vò', 'Xã Lai Vung', 'Xã Hòa Long', 'Xã Phong Hòa', 'Xã Tân Dương',
+  'Xã Phú Hựu', 'Xã Tân Nhuận Đông', 'Xã Tân Phú Trung', 'Xã Tân Phú', 'Xã Thanh Hưng',
+  'Xã An Hữu', 'Xã Mỹ Lợi', 'Xã Mỹ Đức Tây', 'Xã Mỹ Thiện', 'Xã Hậu Mỹ',
+  'Xã Hội Cư', 'Xã Cái Bè', 'Xã Mỹ Thành', 'Xã Thạnh Phú', 'Xã Bình Phú',
+  'Xã Hiệp Đức', 'Xã Long Tiên', 'Xã Ngũ Hiệp', 'Xã Tân Phước 1', 'Xã Tân Phước 2',
+  'Xã Tân Phước 3', 'Xã Hưng Thạnh', 'Xã Tân Hương', 'Xã Châu Thành', 'Xã Long Hưng',
+  'Xã Long Định', 'Xã Bình Trưng', 'Xã Vĩnh Kim', 'Xã Kim Sơn', 'Xã Mỹ Tịnh An',
+  'Xã Lương Hòa Lạc', 'Xã Tân Thuận Bình', 'Xã Chợ Gạo', 'Xã An Thạnh Thủy', 'Xã Bình Ninh',
+  'Xã Vĩnh Bình', 'Xã Đồng Sơn', 'Xã Phú Thành', 'Xã Long Bình', 'Xã Vĩnh Hựu',
+  'Xã Gò Công Đông', 'Xã Tân Điền', 'Xã Tân Hòa', 'Xã Tân Đông', 'Xã Gia Thuận',
+  'Xã Tân Thới', 'Xã Tân Phú Đông',
+  'Phường Mỹ Tho', 'Phường Đạo Thạnh', 'Phường Mỹ Phong', 'Phường Thới Sơn', 'Phường Trung An',
+  'Phường Gò Công', 'Phường Long Thuận', 'Phường Bình Xuân', 'Phường Sơn Qui', 'Phường An Bình',
+  'Phường Hồng Ngự', 'Phường Thường Lạc', 'Phường Cao Lãnh', 'Phường Mỹ Ngãi', 'Phường Mỹ Trà',
+  'Phường Sa Đéc', 'Phường Mỹ Phước Tây', 'Phường Thanh Hòa', 'Phường Cai Lậy', 'Phường Nhị Quý'
+];
+
+const WARDS_BY_PROVINCE = {
+  'Đồng Tháp': DONG_THAP_WARDS
+};
+
+export function getWardOptions(province = '') {
+  return [...(WARDS_BY_PROVINCE[province] || [])];
+}
+
 export const REGISTRATION_TYPES = [
   {
     id: 'ban_le',
@@ -36,15 +77,14 @@ export const REGISTRATION_TYPES = [
 
 const COMMON_FIELDS = [
   {
-    key: 'province', label: 'Tỉnh / Thành phố', type: 'text', required: true,
+    key: 'province', label: 'Tỉnh / Thành phố', type: 'select', required: true,
+    defaultValue: 'Đồng Tháp',
+    options: PROVINCE_OPTIONS,
     aliases: ['tỉnh/thành phố', 'tỉnh thành phố', 'tỉnh', 'thành phố']
   },
   {
-    key: 'district', label: 'Quận / Huyện', type: 'text', required: true, sendToTarget: false,
-    aliases: ['quận/huyện', 'quận huyện', 'quận', 'huyện']
-  },
-  {
-    key: 'ward', label: 'Xã / Phường', type: 'text', required: true,
+    key: 'ward', label: 'Xã / Phường', type: 'select', required: true,
+    dependsOn: 'province',
     aliases: ['xã/phường', 'xã phường', 'phường', 'xã']
   },
   {
@@ -203,7 +243,7 @@ const FIELD_GROUP_DEFINITIONS = [
     id: 'vi_tri_dia_ly',
     label: 'Vị trí địa lý',
     description: 'Nhập địa chỉ theo thứ tự từ tỉnh/thành phố đến địa chỉ kinh doanh.',
-    keys: ['province', 'district', 'ward', 'businessAddress', 'headOfficeAddress']
+    keys: ['province', 'ward', 'businessAddress', 'headOfficeAddress']
   },
   {
     id: 'thong_tin_lien_lac',

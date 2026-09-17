@@ -1,6 +1,4 @@
-TRƯỜNG GPP V1.0.5 - CẤU TRÚC ĐƯA LÊN GITHUB
-
-Đưa TOÀN BỘ nội dung trong thư mục này lên thư mục gốc của kho GitHub:
+TRƯỜNG GPP V1.0.6 - CẤU TRÚC ĐƯA LÊN GITHUB
 
 index.html
 assets/
@@ -11,10 +9,7 @@ tai-ve/
 README.md
 HUONG_DAN_CAI_DAT.md
 THAY_DOI_V1.md
+KIEM_THU_V1.md
 .nojekyll
 
-Trang chính: index.html
-Gói tiện ích cùng kho: tai-ve/TRUONG_GPP_V1.0.5_TIEN_ICH_TRINH_DUYET.zip
-
-Khi TRƯỜNG GPP chưa phát hiện tiện ích, giao diện chỉ hiện một nút:
-CÀI TIỆN ÍCH NGAY
+Đưa toàn bộ nội dung này vào thư mục gốc của kho GitHub.

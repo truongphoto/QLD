@@ -1,23 +1,16 @@
-# Nội dung phát hành V1.0.5
+# Nội dung phát hành V1.0.6
 
-## Tối giản mạnh giao diện
+## Cập nhật đúng biểu mẫu CSDL Dược
 
-- Không còn thanh cuộn trang.
-- Chỉ còn một thẻ làm việc chính trên màn hình.
-- Thanh trên cùng thu gọn chỉ giữ tên TRƯỜNG GPP và trạng thái tiện ích.
-- Tiến độ 7 nhóm được gộp vào đầu thẻ làm việc.
-- Bỏ khối hướng dẫn dài và các chức năng phụ khỏi giao diện chính.
-- Nhập liệu 2 cột gọn, mỗi nhóm chỉ hiện những trường đang cần.
-- Nhóm 7 tổng duyệt hiển thị 6 khối nhỏ trên cùng màn hình.
-- Nút chỉnh sửa đổi thành biểu tượng bút chì gọn hơn.
-- Dữ liệu vẫn tự lưu trên máy trong khi nhập.
+- Bỏ hoàn toàn trường **Quận / Huyện**.
+- Nhóm **Vị trí địa lý** chỉ còn: Tỉnh / Thành phố, Xã / Phường, Địa chỉ kinh doanh.
+- **Đồng Tháp** được ưu tiên chọn sẵn.
+- Bổ sung danh sách **102 xã/phường hiện hành của Đồng Tháp** để chọn trực tiếp.
+- Khi đổi khỏi Đồng Tháp, ô Xã / Phường chuyển về nhập trực tiếp để không khóa người dùng vào dữ liệu chưa được tích hợp.
+- Tiện ích tự điền theo đúng thứ tự Tỉnh / Thành phố → Xã / Phường.
 
 ## Phạm vi an toàn giữ nguyên
 
 - Không tự tải tài liệu.
 - Không tự nhập mã xác nhận.
 - Không tự bấm Đăng ký.
-- Tự điền và kiểm tra lại các trường có thể tự động hóa trên CSDL Dược.
-
-- Khi chưa phát hiện tiện ích, chỉ hiện một nút **CÀI TIỆN ÍCH NGAY**.
-- Gói tiện ích được đặt cùng kho GitHub trong thư mục `tai-ve/`.

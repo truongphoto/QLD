@@ -2,7 +2,8 @@ import {
   REGISTRATION_TYPES,
   getFieldsForType,
   getFieldGroupsForType,
-  getRegistrationType
+  getRegistrationType,
+  getWardOptions
 } from './schema.js';
 import { validateDossier } from './validation.js';
 import { STORAGE_KEY, createFillPayload } from './state.js';
@@ -65,10 +66,28 @@ function renderProfileSelect() {
   ).join('');
 }
 
+function fieldValue(field) {
+  const current = data[field.key];
+  if ((current === undefined || current === null || current === '') && field.defaultValue) return field.defaultValue;
+  return current ?? '';
+}
+
+function fieldOptions(field) {
+  if (field.key === 'ward') {
+    const province = fieldValue(getFieldsForType(registrationType).find(item => item.key === 'province') || {key:'province', defaultValue:'Đồng Tháp'});
+    return getWardOptions(province);
+  }
+  return field.options || [];
+}
+
 function fieldInput(field) {
-  const value = data[field.key] ?? '';
+  const value = fieldValue(field);
   if (field.type === 'select') {
-    return `<select id="${field.key}" name="${field.key}"><option value="">-- Chọn --</option>${field.options.map(option => `<option value="${escapeHtml(option)}" ${value === option ? 'selected' : ''}>${escapeHtml(option)}</option>`).join('')}</select>`;
+    const options = fieldOptions(field);
+    if (field.key === 'ward' && options.length === 0) {
+      return `<input id="${field.key}" name="${field.key}" type="text" value="${escapeHtml(value)}" placeholder="Nhập Xã / Phường" autocomplete="off" />`;
+    }
+    return `<select id="${field.key}" name="${field.key}"><option value="">-- Chọn --</option>${options.map(option => `<option value="${escapeHtml(option)}" ${value === option ? 'selected' : ''}>${escapeHtml(option)}</option>`).join('')}</select>`;
   }
   if (field.type === 'checkbox') {
     return `<label class="checkbox-row"><input id="${field.key}" name="${field.key}" type="checkbox" ${value ? 'checked' : ''} /><span>${escapeHtml(field.label)}</span></label>`;
@@ -280,11 +299,23 @@ function startFill() {
 
 
 loadDraft();
+pruneDataForType();
 renderProfileSelect();
 renderWizard();
 
 form.addEventListener('input', saveDraft);
-form.addEventListener('change', saveDraft);
+form.addEventListener('change', event => {
+  if (event.target?.name === 'province') {
+    readForm();
+    const wards = getWardOptions(data.province);
+    if (wards.length > 0 && !wards.includes(data.ward)) data.ward = '';
+    const groups = getFieldGroupsForType(registrationType);
+    if (groups[currentStep]?.id === 'vi_tri_dia_ly') renderGroupForm(groups[currentStep]);
+    saveDraft();
+    return;
+  }
+  saveDraft();
+});
 
 profileSelect.addEventListener('change', () => {
   readForm();

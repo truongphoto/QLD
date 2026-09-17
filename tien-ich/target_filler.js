@@ -7,7 +7,6 @@
 
   const FIELD_META = {
     province: {label:'Tỉnh/Thành phố', aliases:['tỉnh/thành phố','tỉnh thành phố']},
-    district: {label:'Quận/Huyện', aliases:['quận/huyện','quận huyện']},
     ward: {label:'Xã/Phường', aliases:['xã/phường','xã phường']},
     drugBusinessCertificateNumber: {
       label:'Số giấy chứng nhận đủ điều kiện sản xuất/kinh doanh thuốc',
