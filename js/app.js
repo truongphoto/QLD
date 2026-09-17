@@ -21,6 +21,8 @@ const finishPanel = document.querySelector('#finishPanel');
 const reviewList = document.querySelector('#reviewList');
 const prevStepBtn = document.querySelector('#prevStepBtn');
 const nextStepBtn = document.querySelector('#nextStepBtn');
+const installExtensionBtn = document.querySelector('#installExtensionBtn');
+const dialogCloseBtn = document.querySelector('#dialogClose');
 
 let extensionReady = false;
 let toastTimer;
@@ -233,6 +235,16 @@ function toast(message) {
 function dialog(title, text) {
   document.querySelector('#dialogTitle').textContent = title;
   document.querySelector('#dialogText').textContent = text;
+  installExtensionBtn.classList.add('hidden');
+  dialogCloseBtn.classList.remove('hidden');
+  document.querySelector('#dialog').classList.remove('hidden');
+}
+
+function installExtensionDialog() {
+  document.querySelector('#dialogTitle').textContent = 'Cài tiện ích TRƯỜNG GPP';
+  document.querySelector('#dialogText').textContent = 'Tiện ích chỉ cần cài một lần để TRƯỜNG GPP tự điền thông tin vào CSDL Dược.';
+  installExtensionBtn.classList.remove('hidden');
+  dialogCloseBtn.classList.add('hidden');
   document.querySelector('#dialog').classList.remove('hidden');
 }
 
@@ -258,7 +270,7 @@ function startFill() {
     return;
   }
   if (!extensionReady) {
-    dialog('Chưa phát hiện tiện ích TRƯỜNG GPP', 'Hãy cài hoặc bật tiện ích TRƯỜNG GPP trên trình duyệt rồi tải lại trang. Bản nháp của bạn vẫn được lưu trên máy.');
+    installExtensionDialog();
     return;
   }
   const payload = createFillPayload(data, registrationType);
@@ -301,7 +313,10 @@ reviewList.addEventListener('click', event => {
 });
 
 document.querySelector('#startFillBtn').addEventListener('click', startFill);
-document.querySelector('#dialogClose').addEventListener('click', () => document.querySelector('#dialog').classList.add('hidden'));
+dialogCloseBtn.addEventListener('click', () => document.querySelector('#dialog').classList.add('hidden'));
+installExtensionBtn.addEventListener('click', () => {
+  toast('Đang tải tiện ích TRƯỜNG GPP…');
+});
 window.addEventListener('message', event => {
   if (event.source !== window || event.origin !== window.location.origin) return;
   if (event.data?.type === 'TRUONG_GPP_EXTENSION_READY') {

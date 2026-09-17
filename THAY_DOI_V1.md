@@ -1,4 +1,4 @@
-# Nội dung phát hành V1.0.4
+# Nội dung phát hành V1.0.5
 
 ## Tối giản mạnh giao diện
 
@@ -18,3 +18,6 @@
 - Không tự nhập mã xác nhận.
 - Không tự bấm Đăng ký.
 - Tự điền và kiểm tra lại các trường có thể tự động hóa trên CSDL Dược.
+
+- Khi chưa phát hiện tiện ích, chỉ hiện một nút **CÀI TIỆN ÍCH NGAY**.
+- Gói tiện ích được đặt cùng kho GitHub trong thư mục `tai-ve/`.

@@ -1,10 +1,10 @@
-# TRƯỜNG GPP V1.0.4
+# TRƯỜNG GPP V1.0.5
 
 TRƯỜNG GPP là trợ lý nhập thông tin đăng ký tài khoản trên CSDL Dược.
 
 ## Giao diện một màn hình, không thanh cuộn
 
-V1.0.4 tối giản giao diện cho người dùng không rành công nghệ:
+V1.0.5 tối giản giao diện cho người dùng không rành công nghệ:
 
 - Toàn bộ ứng dụng nằm gọn trong một màn hình.
 - Không dùng thanh cuộn trang.
@@ -34,6 +34,6 @@ V1 không tự đính kèm tài liệu, không nhập mã xác nhận và không
 
 ## Gói phát hành
 
-- `TRUONG_GPP_V1.0.4_TRANG_NHAP_LIEU.zip`
-- `TRUONG_GPP_V1.0.4_TIEN_ICH_TRINH_DUYET.zip`
-- `TRUONG_GPP_V1.0.4_HOAN_CHINH.zip`
+- `TRUONG_GPP_V1.0.5_TRANG_NHAP_LIEU.zip`
+- `TRUONG_GPP_V1.0.5_TIEN_ICH_TRINH_DUYET.zip`
+- `TRUONG_GPP_V1.0.5_HOAN_CHINH.zip`

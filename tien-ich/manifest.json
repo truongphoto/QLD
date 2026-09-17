@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "TRƯỜNG GPP – Trợ lý CSDL Dược",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Tự động điền thông tin chữ và số vào trang đăng ký CSDL Dược. Không tự đính kèm tài liệu, nhập mã xác nhận hoặc bấm Đăng ký.",
   "permissions": [
     "storage",
