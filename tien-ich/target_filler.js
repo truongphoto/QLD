@@ -320,11 +320,42 @@
     }
   }
 
-  chrome.runtime.onMessage.addListener(message => {
+  chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     if (message?.type === 'TRUONG_GPP_PENDING_CHANGED') {
       setTimeout(() => attemptPendingFill(false), 150);
+      sendResponse?.({ok:true});
+      return true;
     }
+    if (message?.type === 'TRUONG_GPP_FILL_NOW' && message.payload) {
+      setTimeout(() => attemptPendingFillWithPayload(message.payload), 0);
+      sendResponse?.({ok:true});
+      return true;
+    }
+    return false;
   });
+
+  async function attemptPendingFillWithPayload(payload) {
+    if (running || !payload) return;
+    running = true;
+    try {
+      showWaiting('Đang kiểm tra biểu mẫu CSDL Dược và chuẩn bị điền thông tin…');
+      const detected = await waitForDetectedType(10000);
+      if (detected !== payload.registrationType) {
+        showTypeMismatch(payload.registrationType, detected);
+        return;
+      }
+      const results = [];
+      for (const key of FILL_ORDER) {
+        if (!Object.prototype.hasOwnProperty.call(payload.values || {}, key)) continue;
+        const result = await fillOne(key, payload.values[key]);
+        if (result) results.push(result);
+      }
+      await clearPendingPayload();
+      showResults(results, payload);
+    } finally {
+      running = false;
+    }
+  }
 
   setTimeout(() => attemptPendingFill(false), 300);
 })();

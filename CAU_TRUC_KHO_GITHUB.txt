@@ -1,15 +1,14 @@
-TRƯỜNG GPP V1.0.6 - CẤU TRÚC ĐƯA LÊN GITHUB
+TRƯỜNG GPP V1.0.8
 
-index.html
-assets/
-css/
-js/
-tien-ich/
-tai-ve/
-README.md
-HUONG_DAN_CAI_DAT.md
-THAY_DOI_V1.md
-KIEM_THU_V1.md
-.nojekyll
-
-Đưa toàn bộ nội dung này vào thư mục gốc của kho GitHub.
+index.html                  Trang chính GitHub Pages
+assets/                     Biểu tượng
+css/                        Giao diện
+js/                         Mã trang nhập liệu
+tien-ich/                   Mã nguồn tiện ích trình duyệt
+quan-tri/                   Gói dành cho chủ dự án phát hành tiện ích
+README.md                   Thông tin phiên bản
+HUONG_DAN_CAI_DAT.md        Hướng dẫn sử dụng
+PHAT_HANH_TIEN_ICH.md       Hướng dẫn chủ dự án phát hành tiện ích
+KIEM_THU_V1.md              Phạm vi kiểm thử
+THAY_DOI_V1.md              Nội dung thay đổi
+.nojekyll                   Giữ cấu trúc tĩnh trên GitHub Pages

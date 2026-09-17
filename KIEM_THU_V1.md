@@ -1,4 +1,4 @@
-# Kết quả kiểm thử V1.0.6
+# Kết quả kiểm thử V1.0.8
 
 Nội dung kiểm tra chính:
 
@@ -8,8 +8,10 @@ Nội dung kiểm tra chính:
 - Không dùng thanh cuộn trang.
 - Không còn trường Quận / Huyện.
 - Đồng Tháp đứng đầu danh sách Tỉnh / Thành phố và là giá trị mặc định.
-- Danh sách Đồng Tháp có đủ 102 xã/phường, không trùng tên.
-- Kiểm tra trường bắt buộc, ngày, số điện thoại và email.
+- Bản nháp cũ bị trống tỉnh được chuẩn hóa về Đồng Tháp.
+- Danh sách Đồng Tháp có đủ 102 xã/phường.
+- Nút cài tiện ích không còn tải tệp ZIP.
+- Sau khi quay lại từ cửa hàng, trang tự tải lại để nhận tiện ích vừa cài.
 - Không tự thao tác tải tệp, mã xác nhận hoặc nút Đăng ký.
 - `index.html` chạy trực tiếp bằng `file://`.
 - Kiểm tra cú pháp JavaScript và toàn bộ bộ kiểm thử tự động.

@@ -2,6 +2,13 @@ import { TARGET_REGISTER_URL, getFieldsForType, getManualUploadsForType } from '
 
 export const STORAGE_KEY = 'truong_gpp_v1_draft';
 
+
+export function normalizeDraftData(input = {}) {
+  const normalized = { ...(input || {}) };
+  if (!String(normalized.province ?? '').trim()) normalized.province = 'Đồng Tháp';
+  return normalized;
+}
+
 export function createFillPayload(data, registrationType) {
   const values = {};
   const allowed = new Map(getFieldsForType(registrationType).map(field => [field.key, field]));

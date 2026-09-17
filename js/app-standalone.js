@@ -340,6 +340,13 @@ function validateDossier(data = {}, registrationType = 'ban_le') {
 /* web/js/state.js */
 const STORAGE_KEY = 'truong_gpp_v1_draft';
 
+
+function normalizeDraftData(input = {}) {
+  const normalized = { ...(input || {}) };
+  if (!String(normalized.province ?? '').trim()) normalized.province = 'Đồng Tháp';
+  return normalized;
+}
+
 function createFillPayload(data, registrationType) {
   const values = {};
   const allowed = new Map(getFieldsForType(registrationType).map(field => [field.key, field]));
@@ -541,7 +548,7 @@ function loadDraft() {
     const parsed = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
     if (parsed?.schemaVersion === 1 && REGISTRATION_TYPES.some(item => item.id === parsed.registrationType) && parsed.data && typeof parsed.data === 'object') {
       registrationType = parsed.registrationType;
-      data = parsed.data;
+      data = normalizeDraftData(parsed.data);
     }
   } catch {}
 }
@@ -640,7 +647,7 @@ function dialog(title, text) {
 
 function installExtensionDialog() {
   document.querySelector('#dialogTitle').textContent = 'Cài tiện ích TRƯỜNG GPP';
-  document.querySelector('#dialogText').textContent = 'Tiện ích chỉ cần cài một lần để TRƯỜNG GPP tự điền thông tin vào CSDL Dược.';
+  document.querySelector('#dialogText').textContent = 'Tiện ích chỉ cần cài một lần từ Cửa hàng Chrome. Sau khi cài xong, quay lại trang này để bắt đầu điền.';
   installExtensionBtn.classList.remove('hidden');
   dialogCloseBtn.classList.add('hidden');
   document.querySelector('#dialog').classList.remove('hidden');
@@ -678,6 +685,7 @@ function startFill() {
 
 
 loadDraft();
+data = normalizeDraftData(data);
 pruneDataForType();
 renderProfileSelect();
 renderWizard();
@@ -725,7 +733,13 @@ reviewList.addEventListener('click', event => {
 document.querySelector('#startFillBtn').addEventListener('click', startFill);
 dialogCloseBtn.addEventListener('click', () => document.querySelector('#dialog').classList.add('hidden'));
 installExtensionBtn.addEventListener('click', () => {
-  toast('Đang tải tiện ích TRƯỜNG GPP…');
+  sessionStorage.setItem('truong_gpp_waiting_install', '1');
+  toast('Đang mở Cửa hàng Chrome…');
+});
+window.addEventListener('focus', () => {
+  if (sessionStorage.getItem('truong_gpp_waiting_install') !== '1') return;
+  sessionStorage.removeItem('truong_gpp_waiting_install');
+  setTimeout(() => window.location.reload(), 350);
 });
 window.addEventListener('message', event => {
   if (event.source !== window || event.origin !== window.location.origin) return;
