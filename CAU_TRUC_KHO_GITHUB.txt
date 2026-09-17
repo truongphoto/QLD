@@ -1,0 +1,15 @@
+TRƯỜNG GPP V1.0.4 — CẤU TRÚC KHO GITHUB
+
+index.html                  Trang chính GitHub Pages
+assets/                     Biểu tượng
+css/                        Giao diện
+js/                         Chức năng trang nhập liệu
+tien-ich/                   Mã nguồn tiện ích trình duyệt
+tai-ve/                     Gói tiện ích ZIP để phát hành/tải về
+.nojekyll                   Giữ nguyên cấu trúc tệp trên GitHub Pages
+README.md                   Thông tin dự án
+HUONG_DAN_CAI_DAT.md         Hướng dẫn cài đặt
+THAY_DOI_V1.md              Lịch sử thay đổi
+
+Khi tải lên GitHub: tải TOÀN BỘ nội dung thư mục này lên thư mục gốc của kho.
+Sau đó bật Settings > Pages > Deploy from a branch > main > /(root).

@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0f766e" />
+  <link rel="icon" type="image/png" sizes="192x192" href="./assets/icon192.png" />
+  <link rel="apple-touch-icon" href="./assets/icon192.png" />
+  <meta name="description" content="TRƯỜNG GPP – Trợ lý điền thông tin đăng ký tài khoản CSDL Dược." />
+  <title>TRƯỜNG GPP – Trợ lý đăng ký CSDL Dược</title>
+  <link rel="stylesheet" href="./css/app.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark">GPP</div>
+      <h1>TRƯỜNG GPP</h1>
+    </div>
+    <div id="extensionStatus" class="status-pill status-warn">Đang kiểm tra tiện ích…</div>
+  </header>
+
+  <main class="wizard-shell">
+    <section id="wizardStage" class="card wizard-card">
+      <div class="wizard-top">
+        <div class="progress-area">
+          <div class="progress-topline">
+            <strong>Nhóm <span id="currentStepNumber">1</span>/7</strong>
+            <span id="currentStepName">Định danh cơ sở</span>
+          </div>
+          <div class="progress-track"><div id="progressBar" class="progress-bar"></div></div>
+        </div>
+        <div class="loai-ho-so-line">
+          <label for="loaiHoSoSelect">Hồ sơ</label>
+          <select id="loaiHoSoSelect" aria-label="Loại hồ sơ"></select>
+        </div>
+      </div>
+
+      <div class="wizard-heading">
+        <h2 id="wizardTitle">Định danh cơ sở</h2>
+        <p id="wizardDescription">Nhập thông tin nhận diện cơ bản của cơ sở.</p>
+      </div>
+
+      <div id="formPanel" class="wizard-panel">
+        <form id="dossierForm" novalidate></form>
+      </div>
+
+      <div id="finishPanel" class="wizard-panel hidden">
+        <div class="finish-head">
+          <strong>Tổng duyệt thông tin</strong>
+          <span id="validationSummary">Kiểm tra lại trước khi bắt đầu điền.</span>
+        </div>
+        <div id="reviewList" class="review-list"></div>
+        <div class="handoff-note">Sau khi tự điền xong: đính kèm giấy tờ → nhập mã xác nhận → kiểm tra → bấm <strong>Đăng ký</strong>.</div>
+        <button id="startFillBtn" type="button" class="primary final-action">Đồng ý &amp; Bắt đầu điền</button>
+      </div>
+
+      <div class="wizard-navigation">
+        <button id="prevStepBtn" type="button" class="secondary">← Quay lại</button>
+        <button id="nextStepBtn" type="button" class="primary">Tiếp tục →</button>
+      </div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <div id="dialog" class="dialog-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="dialogTitle">
+    <div class="dialog card">
+      <h3 id="dialogTitle">Thông báo</h3>
+      <p id="dialogText"></p>
+      <button id="dialogClose" class="primary">Đã hiểu</button>
+    </div>
+  </div>
+
+  <script defer src="./js/app-standalone.js"></script>
+</body>
+</html>
